@@ -1,0 +1,29 @@
+{
+  "name": "hejarespegel",
+  "version": "1.0.0",
+  "description": "The frontend application for the Hejare Magic Mirror",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hejare/hejarespegel.git"
+  },
+  "keywords": [
+    "hejare",
+    "spegel",
+    "kul"
+  ],
+  "author": "Hejare AB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hejare/hejarespegel/issues"
+  },
+  "homepage": "https://github.com/hejare/hejarespegel#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
+}
