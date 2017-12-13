@@ -24,6 +24,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "phaser-ce": "^2.9.3"
   }
 }
