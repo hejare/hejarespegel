@@ -19,14 +19,16 @@ class HejareSpegel {
         this.game.load.image('logo', 'img/logo.png');
 
         this.game.load.spritesheet('explosion', 'img/explosion_1.png', 88, 93);
-        this.game.load.spritesheet('sun', 'img/sun.png', 182, 183, 24);
+        // this.game.load.spritesheet('sun', 'img/sun.png', 182, 183, 24);
+        this.game.load.atlasJSONHash('sun', 'img/sun2.png', 'img/sun2.json');
     }
 
     create() {
         var logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
-        logo.anchor.setTo(0.5, 0.5);
+        logo.anchor.setTo(0.7, 0.5);
 
-        this.sun = this.game.add.sprite(40, 40, 'sun', 5);
+        this.sun = this.game.add.sprite(-400, -400, 'sun');
+        this.sun.scale.set(0.5);
         var shine = this.sun.animations.add('shine');
         shine.play(24, true);
 
@@ -36,7 +38,7 @@ class HejareSpegel {
     }
 
     private moveSun() {
-        let coordinates = this.sunPosition(this.gameWidth - this.sun.width, 100);
+        let coordinates = this.sunPosition(this.gameWidth - this.sun.width, 200);
         this.sun.x = coordinates.x;
         this.sun.y = coordinates.y;
     }

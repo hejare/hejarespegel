@@ -70,7 +70,8 @@ gulp.task("watch", ["default"], function () {
     });
 
     gulp.watch(["src/**/**.ts", "test/**/*.ts"], ["default"]);
-    gulp.watch("public/src/*.js").on('change', browserSync.reload);
+    gulp.watch(["generated/**/*"], ["bundle"]);
+    gulp.watch(["public/src/*.js", "public/**/*.html"]).on('change', browserSync.reload);
 });
 
 gulp.task("default", ["clean", "build"]);
