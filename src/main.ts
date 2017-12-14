@@ -1,5 +1,3 @@
-// <reference path="../node_modules/phaser-ce/typescript/phaser.d.ts"/>
-
 import * as Phaser from 'phaser-ce';
 import { Sprite, Game } from 'phaser-ce';
 
