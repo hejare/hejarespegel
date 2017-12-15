@@ -4,7 +4,7 @@ import { Sprite, Game } from 'phaser-ce';
 class HejareSpegel {
 
     constructor() {
-        this.gameWidth = 1024;
+        this.gameWidth = 1080;
         this.gameHeight = 600;
         this.game = new Phaser.Game(this.gameWidth, this.gameHeight, Phaser.AUTO, 'content', { preload: this.preload.bind(this), create: this.create.bind(this) });
     }
@@ -25,7 +25,7 @@ class HejareSpegel {
 
     create() {
         var logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
-        logo.anchor.setTo(0.7, 0.5);
+        logo.anchor.setTo(0.5, 0.5);
 
         this.sun = this.game.add.sprite(-400, -400, 'sun');
         this.sun.scale.set(0.5);
