@@ -1,21 +1,23 @@
-import * as Phaser from 'phaser-ce';
-import { Sprite, Game } from 'phaser-ce';
-import PhaserObject from './entity/phaserobject';
-import Logo from './entity/logo';
-import Sun from './entity/sun';
+import * as Phaser from "phaser-ce";
+import { Sprite, Game } from "phaser-ce";
+import PhaserObject from "./entity/phaserobject";
+import Logo from "./entity/logo";
+import Sun from "./entity/sun";
 
 class HejareSpegel {
+
+    private game: Phaser.Game;
+    private phaserObjects: Array<PhaserObject>;
 
     constructor() {
         const gameWidth = 1080;
         const gameHeight = 600;
-        this.game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'content', { preload: this.preload.bind(this), create: this.create.bind(this) });
+        this.game = new Phaser.Game(
+            gameWidth, gameHeight, Phaser.AUTO, "content",
+            { preload: this.preload.bind(this), create: this.create.bind(this) });
     }
 
-    game: Phaser.Game;
-    phaserObjects : Array<PhaserObject>;
-
-    preload() {
+    public preload() {
         this.phaserObjects = new Array<PhaserObject>();
         this.phaserObjects.push(new Logo(this.game));
         this.phaserObjects.push(new Sun(this.game));
@@ -25,7 +27,7 @@ class HejareSpegel {
         });
     }
 
-    create() {
+    public create() {
         this.phaserObjects.forEach(element => {
             element.create();
         });
@@ -34,5 +36,5 @@ class HejareSpegel {
 }
 
 window.onload = () => {
-    var game = new HejareSpegel();
+    let game = new HejareSpegel();
 };

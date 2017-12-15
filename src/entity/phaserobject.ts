@@ -1,14 +1,14 @@
-import { Sprite, Game } from 'phaser-ce';
+import { Sprite, Game } from "phaser-ce";
 
 abstract class PhaserObject {
-    game: Game;
+    protected game: Game;
 
     constructor(game: Game) {
         this.game = game;
     }
 
-    abstract preload();
-    abstract create();
+    public abstract preload();
+    public abstract create();
 }
 
 export default PhaserObject;

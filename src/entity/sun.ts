@@ -1,20 +1,21 @@
-import PhaserObject from './phaserobject';
+import PhaserObject from "./phaserobject";
 
 class Sun extends PhaserObject {
 
+    public dawnAndDuskColor: Phaser.ColorComponents;
+    public noonColor: Phaser.ColorComponents;
+
     private sun: Phaser.Sprite;
     private speed: Speed = Speed.MINUTE;
-    dawnAndDuskColor: Phaser.ColorComponents;
-    noonColor: Phaser.ColorComponents;
 
-    preload() {
-        this.game.load.atlasJSONHash('sun', 'img/sun.png', 'img/sun.json');
+    public preload() {
+        this.game.load.atlasJSONHash("sun", "img/sun.png", "img/sun.json");
     }
 
-    create() {
-        this.sun = this.game.add.sprite(-400, -400, 'sun');
+    public create() {
+        this.sun = this.game.add.sprite(-400, -400, "sun");
         this.sun.scale.set(0.5);
-        let shine = this.sun.animations.add('shine');
+        let shine = this.sun.animations.add("shine");
         shine.play(24, true);
         this.dawnAndDuskColor = Phaser.Color.hexToColor("#FF0000");
         this.noonColor = Phaser.Color.hexToColor("#FFFF00");
@@ -37,17 +38,19 @@ class Sun extends PhaserObject {
         let maxX = this.game.width - this.sun.width;
         let progress = this.sun.x / maxX * 100;
 
-        if (progress < 10)
+        if (progress < 10) {
             this.sun.tint = Phaser.Color.interpolateColor(
                 this.dawnAndDuskColor.color,
                 this.noonColor.color,
                 maxX * 0.1, this.sun.x);
-        else if (progress > 90)
+        } else if (progress > 90) {
             this.sun.tint = Phaser.Color.interpolateColor(
                 this.noonColor.color,
                 this.dawnAndDuskColor.color,
                 maxX * 0.1, this.sun.x * 0.9);
-        else this.sun.tint = this.noonColor.color;
+        } else {
+            this.sun.tint = this.noonColor.color;
+        }
     }
 
     private updatePosition() {
@@ -57,22 +60,21 @@ class Sun extends PhaserObject {
     }
 
     private sunPosition(width, height) {
-        var d = new Date();
-        var x;
-        if (this.speed == Speed.DAY)
+        const d = new Date();
+        let x;
+        if (this.speed === Speed.DAY) {
             x = (d.getHours() * 60 + d.getMinutes()) / (24 * 60);
-        else
+        } else {
             x = (d.getSeconds() * 1000 + d.getMilliseconds()) / 60000;
-
+        }
         return {
             x: x * width,
-            y: 4 * Math.pow((x - 0.5), 2) * height
-        }
+            y: 4 * Math.pow((x - 0.5), 2) * height };
     }
 
 }
 
-enum Speed { MINUTE = 100, DAY = 60000 };
+enum Speed { MINUTE = 100, DAY = 60000 }
 
 
 export default Sun;
