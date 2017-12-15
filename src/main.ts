@@ -11,7 +11,7 @@ class HejareSpegel {
 
     constructor() {
         const gameWidth = 1080;
-        const gameHeight = 600;
+        const gameHeight = 1720;
         this.game = new Phaser.Game(
             gameWidth, gameHeight, Phaser.AUTO, "content",
             { preload: this.preload.bind(this), create: this.create.bind(this) });
@@ -37,4 +37,5 @@ class HejareSpegel {
 
 window.onload = () => {
     let game = new HejareSpegel();
+    flower();
 };
