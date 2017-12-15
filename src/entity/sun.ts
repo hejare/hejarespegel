@@ -6,7 +6,7 @@ class Sun extends PhaserObject {
     public noonColor: Phaser.ColorComponents;
 
     private sun: Phaser.Sprite;
-    private speed: Speed = Speed.MINUTE;
+    private speed: Speed = Speed.DAY;
 
     public preload() {
         this.game.load.atlasJSONHash("sun", "img/sun.png", "img/sun.json");
