@@ -20,7 +20,7 @@ class HejareSpegel {
 
         this.game.load.spritesheet('explosion', 'img/explosion_1.png', 88, 93);
         // this.game.load.spritesheet('sun', 'img/sun.png', 182, 183, 24);
-        this.game.load.atlasJSONHash('sun', 'img/sun2.png', 'img/sun2.json');
+        this.game.load.atlasJSONHash('sun', 'img/sun2-white.png', 'img/sun2.json');
     }
 
     create() {
