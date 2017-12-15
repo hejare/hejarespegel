@@ -1,56 +1,34 @@
 import * as Phaser from 'phaser-ce';
 import { Sprite, Game } from 'phaser-ce';
+import PhaserObject from './entity/phaserobject';
+import Logo from './entity/logo';
+import Sun from './entity/sun';
 
 class HejareSpegel {
 
     constructor() {
-        this.gameWidth = 1080;
-        this.gameHeight = 600;
-        this.game = new Phaser.Game(this.gameWidth, this.gameHeight, Phaser.AUTO, 'content', { preload: this.preload.bind(this), create: this.create.bind(this) });
+        const gameWidth = 1080;
+        const gameHeight = 600;
+        this.game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'content', { preload: this.preload.bind(this), create: this.create.bind(this) });
     }
 
     game: Phaser.Game;
-    sun: Phaser.Sprite;
-
-    gameHeight: number;
-    gameWidth: number;
+    phaserObjects : Array<PhaserObject>;
 
     preload() {
-        this.game.load.image('logo', 'img/logo.png');
+        this.phaserObjects = new Array<PhaserObject>();
+        this.phaserObjects.push(new Logo(this.game));
+        this.phaserObjects.push(new Sun(this.game));
 
-        this.game.load.spritesheet('explosion', 'img/explosion_1.png', 88, 93);
-        // this.game.load.spritesheet('sun', 'img/sun.png', 182, 183, 24);
-        this.game.load.atlasJSONHash('sun', 'img/sun2-white.png', 'img/sun2.json');
+        this.phaserObjects.forEach(element => {
+            element.preload();
+        });
     }
 
     create() {
-        var logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
-        logo.anchor.setTo(0.5, 0.5);
-
-        this.sun = this.game.add.sprite(-400, -400, 'sun');
-        this.sun.scale.set(0.5);
-        var shine = this.sun.animations.add('shine');
-        shine.play(24, true);
-
-        // Update the sun position once every minute.
-        this.moveSun();
-        setInterval(this.moveSun.bind(this), 60000);
-    }
-
-    private moveSun() {
-        let coordinates = this.sunPosition(this.gameWidth - this.sun.width, 200);
-        this.sun.x = coordinates.x;
-        this.sun.y = coordinates.y;
-    }
-
-    private sunPosition(width, height) {
-        var d = new Date();
-        var x = (d.getHours() * 60 + d.getMinutes()) / (24 * 60);
-        // var x = (d.getSeconds() * 1000 + d.getMilliseconds()) / 60000;
-        return {
-            x: x * width,
-            y: 4 * Math.pow((x - 0.5), 2) * height
-        }
+        this.phaserObjects.forEach(element => {
+            element.create();
+        });
     }
 
 }
