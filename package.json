@@ -1,0 +1,48 @@
+{
+  "name": "hejarespegel",
+  "version": "1.0.0",
+  "description": "The frontend application for the Hejare Magic Mirror",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hejare/hejarespegel.git"
+  },
+  "keywords": [
+    "hejare",
+    "spegel",
+    "kul"
+  ],
+  "author": "Hejare AB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hejare/hejarespegel/issues"
+  },
+  "homepage": "https://github.com/hejare/hejarespegel#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "phaser-ce": "^2.9.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.5.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-tslint": "^8.1.2",
+    "gulp-typescript": "^3.2.3",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wait": "0.0.2",
+    "run-sequence": "^2.2.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
